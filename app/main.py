@@ -52,7 +52,7 @@ class Dictionary:
             if current.hash_value == hash_value and current.key == key:
                 return current.value
             current = current.next
-        raise KeyError(f"Key '{key}' found in dictionary.")
+        raise KeyError(f"Key '{key}' not found in dictionary.")
 
     def __delitem__(self, key: Hashable) -> None:
         hash_value = hash(key)
@@ -70,7 +70,7 @@ class Dictionary:
                 return
             prev = current
             current = current.next
-        raise KeyError(f"Key '{key}' found in dictionary.")
+        raise KeyError(f"Key '{key}' not found in dictionary.")
 
     def _resize(self) -> None:
         old_hash_table = self.hash_table
